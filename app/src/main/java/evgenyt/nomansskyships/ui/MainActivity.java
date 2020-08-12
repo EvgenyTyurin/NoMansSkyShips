@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        appData = AppData.getInstance();
+        appData = AppData.getInstance(this);
         updateParamList();
     }
 
@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         final String[] columns = {"param", "ship1", "ship2"};
         MatrixCursor cursor = new MatrixCursor(matrix);
         int key = 0;
-        NMSShip ship1 = appData.getShipByName("Test ship");
-        NMSShip ship2 = appData.getShipByName("Test ship");
+        NMSShip ship1 = appData.getShipByName("Aakishira S45");
+        NMSShip ship2 = appData.getShipByName("Ibosoneus S56");
         cursor.addRow(new Object[] {key++, "- Galaxy:", "", ""});
         cursor.addRow(new Object[] {key++, "", ship1.getGalaxy(), ship2.getGalaxy()});
         // Show parameters in ListView
