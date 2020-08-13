@@ -24,6 +24,7 @@ public class AppData {
             for (Element shipElement : shipElements) {
                 NMSShip ship = new NMSShip(shipElement.getAttribute("name").getValue());
                 ship.setGalaxy(shipElement.getAttribute("galaxy").getValue());
+                ship.setImageUrl(shipElement.getAttribute("image").getValue());
                 shipList.add(ship);
             }
         } catch (JDOMException e) {

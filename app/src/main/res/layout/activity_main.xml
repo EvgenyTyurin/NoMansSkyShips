@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:background="@android:color/holo_orange_dark"
             android:textAllCaps="true"
+            android:text="Aakishira S45"
             android:textColor="@android:color/black" />
 
         <Button
@@ -28,6 +29,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="2dp"
             android:layout_weight="1"
+            android:text="Aakishira S45"
             android:background="@android:color/holo_orange_dark"
             android:textColor="@android:color/black" />
 
@@ -53,7 +55,7 @@
             android:scaleType="centerCrop"/>
 
         <ImageView
-            android:id="@+id/ship2_mage"
+            android:id="@+id/ship2_image"
             android:layout_width="128dp"
             android:layout_height="match_parent"
             android:layout_margin="2dp"
