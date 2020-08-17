@@ -64,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
         NMSShip ship1 = appData.getShipByName(shipButtons[0].getText().toString());
         NMSShip ship2 = appData.getShipByName(shipButtons[1].getText().toString());
         // Load images
-        Picasso.get().load("https://gamepedia.cursecdn.com/nomanssky_gamepedia/thumb/1/14/36487677_10156330598231153_4991233876102742016_o.jpg/525px-36487677_10156330598231153_4991233876102742016_o.jpg?version=7ce62bf5e64e44d79d6fd72bb36fcf92").into(shipImages[0]);
-        Picasso.get().load(ship2.getImageUrl()).into(shipImages[1]);
+        if (ship1.getImageUrl().contains("https"))
+            Picasso.get().load(ship1.getImageUrl()).into(shipImages[0]);
+        if (ship2.getImageUrl().contains("https"))
+            Picasso.get().load(ship2.getImageUrl()).into(shipImages[1]);
         // Prepare ship parameters matrix
         final String[] matrix = {"_id", "param", "ship1", "ship2"};
         final String[] columns = {"param", "ship1", "ship2"};
@@ -73,6 +75,22 @@ public class MainActivity extends AppCompatActivity {
         int key = 0;
         cursor.addRow(new Object[] {key++, "- Galaxy:", "", ""});
         cursor.addRow(new Object[] {key++, "", ship1.getGalaxy(), ship2.getGalaxy()});
+        cursor.addRow(new Object[] {key++, "- Region:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getRegion(), ship2.getRegion()});
+        cursor.addRow(new Object[] {key++, "- Star:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getStar(), ship2.getStar()});
+        cursor.addRow(new Object[] {key++, "- Coordinates:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getCoordinates(), ship2.getCoordinates()});
+        cursor.addRow(new Object[] {key++, "- Inventory:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getInventory(), ship2.getInventory()});
+        cursor.addRow(new Object[] {key++, "- Cost:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getCost(), ship2.getCost()});
+        cursor.addRow(new Object[] {key++, "- Damage:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getDamage(), ship2.getDamage()});
+        cursor.addRow(new Object[] {key++, "- Shield:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getShield(), ship2.getShield()});
+        cursor.addRow(new Object[] {key++, "- Platform:", "", ""});
+        cursor.addRow(new Object[] {key++, "", ship1.getPlatform(), ship2.getPlatform()});
         // Show parameters in ListView
         final int[] layouts = {R.id.text1, R.id.text2, R.id.text3};
         SimpleCursorAdapter cursorAdapter =

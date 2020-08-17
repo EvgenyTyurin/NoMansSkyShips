@@ -25,6 +25,15 @@ public class AppData {
                 NMSShip ship = new NMSShip(shipElement.getAttribute("name").getValue());
                 ship.setGalaxy(shipElement.getAttribute("galaxy").getValue());
                 ship.setImageUrl(shipElement.getAttribute("image").getValue());
+                ship.setRegion(shipElement.getAttribute("region").getValue());
+                ship.setStar(shipElement.getAttribute("star").getValue());
+                ship.setCoordinates(shipElement.getAttribute("coordinates").getValue());
+                ship.setInventory(shipElement.getAttribute("inventory").getValue());
+                ship.setCost(shipElement.getAttribute("cost").getValue());
+                ship.setDamage(shipElement.getAttribute("damage").getValue());
+                ship.setShield(shipElement.getAttribute("shield").getValue());
+                ship.setPlatform(shipElement.getAttribute("platform").getValue());
+                ship.checkData();
                 shipList.add(ship);
             }
         } catch (JDOMException e) {

@@ -29,6 +29,21 @@ public class NMSShip {
         return name.equals(nmsShip.name);
     }
 
+    public void checkData() {
+        if (coordinates.contains("a href") || coordinates.contains("td"))
+            coordinates = "?";
+        if (damage.contains("a href") || damage.contains("td"))
+            damage = "?";
+        if (platform.contains("a href") || platform.contains("td"))
+            platform = "?";
+        if (region.contains("index") || region.contains("td"))
+            region = "?";
+        if (star.contains("index") || star.contains("td"))
+            star = "?";
+        if (cost.contains("lt"))
+            cost = "?";
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(name);
